@@ -14,7 +14,7 @@ const config = require("./config.json");
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-  // Example of changing the bot's watchings to something useful. `client.user` is what the
+  // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
   client.user.setActivity(` ${client.guilds.size} servers`);
 });
@@ -36,7 +36,7 @@ client.on("message", async message => {
   // This event will run on every single message received, from any channel or DM.
   
   // It's good practice to ignore other bots. This also makes your bot ignore itself
-  // and not get into a spam loop (we call that "hiii").
+  // and not get into a spam loop (we call that "botception").
   if(message.author.bot) return;
   
   // Also good practice to ignore any message that does not start with our prefix, 
@@ -66,7 +66,7 @@ client.on("message", async message => {
     // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
     message.delete().catch(O_o=>{}); 
     // And we get the bot to say the thing: 
-    message.channel.send();
+    message.channel.send(sayMessage);
   }
   
   if(command === "kick") {
